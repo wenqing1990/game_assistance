@@ -1,0 +1,11 @@
+**/target/
+**/.settings/
+**/.classpath
+**/.project
+**/.*.swp
+*.DS_Store*
+**/test-output/
+**/.metadata/
+**/catalina.base_IS_UNDEFINED/
+*.iml
+.idea/
