@@ -369,4 +369,13 @@
 			</properties>
 		</profile>
 	</profiles>
+
+	<repositories>
+		<repository>
+			<id>spring-repo</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/libs-release-remote</url>
+		</repository>
+	</repositories>
+
 </project>
