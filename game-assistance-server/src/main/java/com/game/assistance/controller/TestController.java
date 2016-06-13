@@ -1,4 +1,4 @@
-package com.game.assistance.controllers;
+package com.game.assistance.controller;
 
 import com.game.assistance.response.BaseResponse;
 import io.swagger.annotations.Api;
