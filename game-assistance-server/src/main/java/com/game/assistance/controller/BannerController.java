@@ -1,8 +1,7 @@
 package com.game.assistance.controller;
 
 import com.game.assistance.Route;
-import com.game.assistance.aop.ControllerLogAop;
-import com.game.assistance.request.BannerRequest;
+import com.game.assistance.request.banners.BannerRequest;
 import com.game.assistance.response.BaseDataResponse;
 import com.game.assistance.response.banner.BannerInfoResponse;
 import com.game.assistance.service.BannerService;
@@ -19,7 +18,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.ws.rs.HeaderParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 

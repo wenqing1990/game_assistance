@@ -9,4 +9,12 @@ public class Route {
         public final static String GA_BANNERS = "/v1/ga/banners";
     }
 
+    public static class News {
+        public final static String GA_NEWS = "/v1/ga/news/{type}";
+    }
+
+    public static class Strategy {
+        public final static String GA_STRATEGIES = "/v1/ga/strategies/{type}";
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.game.assistance.request;
+package com.game.assistance.request.banners;
 
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.HeaderParam;
