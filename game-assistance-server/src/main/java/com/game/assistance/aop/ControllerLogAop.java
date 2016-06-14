@@ -14,11 +14,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
@@ -34,9 +32,6 @@ public class ControllerLogAop {
 
     @Autowired
     private HttpServletRequest request;
-
-    @Autowired
-    private HttpServletResponse response;
 
     /**
      * 定义Controller的切面
@@ -70,16 +65,14 @@ public class ControllerLogAop {
             LOGGER.error("Param validate exception{}", e.getMessage());
             result = new BaseDataResponse(ResponseEnum.PARAM_ERROR.getCode(),
                     ResponseEnum.PARAM_ERROR.getMessage() + e.getMessage());
-            response.setStatus(HttpStatus.BAD_REQUEST.value());
         } catch (Exception e) {
             LOGGER.error("business exception", e);
             result = new BaseDataResponse(ResponseEnum.SYSTEM_ERROR.getCode(),
                     ResponseEnum.SYSTEM_ERROR.getMessage() + e.getMessage());
-            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
         } finally {
             // 记录日志
             long lastTime = System.currentTimeMillis() - startTime;
-            LOGGER.info(monitorKey + "【api take time】: {},response result: {} ",
+            LOGGER.info(monitorKey + "【api end】cost time: {},response result: {} ",
                     new Object[] { lastTime, result });
         }
         return result;
@@ -114,7 +107,7 @@ public class ControllerLogAop {
         String methodName = point.getSignature().getName() + "()";
         Object[] paramValues = point.getArgs(); // 拦截类的入参数
         LOGGER.info(
-                "【params:】invoke class name: {}, invoke method name: {},  parameter value: {}, ip:{} ",
+                "【api start】invoke class name: {}, invoke method name: {},  parameter value: {}, ip:{} ",
                 new Object[] { className, methodName, paramValues, getIpAddr(request) });
     }
 
@@ -130,7 +123,6 @@ public class ControllerLogAop {
             ip = request.getRemoteAddr();
         }
         return ip;
-
     }
 
 }

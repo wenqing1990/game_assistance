@@ -1,6 +1,7 @@
 package com.game.assistance.response;
 
 import com.fasterxml.jackson.databind.deser.Deserializers;
+import com.game.assistance.constants.ResponseEnum;
 
 /**
  * Created by wenqing on 2016/6/12 0012.
@@ -21,6 +22,7 @@ public class BaseDataResponse<T> extends BaseResponse {
     }
 
     public BaseDataResponse(T data) {
+        super(ResponseEnum.SUCCESS.getCode(), ResponseEnum.SUCCESS.getMessage());
         this.data = data;
     }
 

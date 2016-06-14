@@ -70,25 +70,25 @@
 	</bean>
 
 	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
-<!--	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
-		&lt;!&ndash; 自动扫描mapping.xml文件 &ndash;&gt;
-		<property name="mapperLocations" value="classpath:com/game/assistance/dao/mapping/*.xml"></property>
+		<!-- 自动扫描mapping.xml文件 -->
+		<property name="mapperLocations" value="classpath:com/game/assistance/dao/mapper/*.xml"></property>
 	</bean>
 
-	&lt;!&ndash; DAO接口所在包名，Spring会自动查找其下的类 &ndash;&gt;
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.huami.test.dao" />
+		<property name="basePackage" value="com.game.assistance.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 
-	&lt;!&ndash; (事务管理)transaction manager, use JtaTransactionManager for global tx &ndash;&gt;
+	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
 	<bean id="transactionManager"
 		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	&lt;!&ndash; enable transaction annotation support &ndash;&gt;
-	<tx:annotation-driven transaction-manager="transactionManager" />-->
+	<!-- enable transaction annotation support -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
 	<!--jdbc-mybatis 配置 end-->
 </beans>

@@ -5,5 +5,8 @@ package com.game.assistance;
  */
 public class Route {
 
+    public static class Banner {
+        public final static String GA_BANNERS = "/v1/ga/banners";
+    }
 
 }
