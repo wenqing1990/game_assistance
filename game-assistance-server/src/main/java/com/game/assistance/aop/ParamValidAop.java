@@ -56,8 +56,7 @@ public class ParamValidAop {
             SkipParamCheck skipParamCheck = method.getAnnotation(SkipParamCheck.class);
             if (skipParamCheck != null && skipParamCheck.value()) {
                 // 业务逻辑处理
-                Object result = pjp.proceed();
-                return result;
+                return  pjp.proceed();
             }
         }
 
@@ -72,7 +71,6 @@ public class ParamValidAop {
             }
         }
         // 业务逻辑处理
-        Object result = pjp.proceed();
-        return result;
+        return pjp.proceed();
     }
 }
