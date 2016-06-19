@@ -1,5 +1,6 @@
 package com.game.assistance.response.strategy;
 
+import com.game.assistance.model.StrategyBannerInfoModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
@@ -8,6 +9,9 @@ import java.util.Date;
  * Created by lenovo on 2016/6/15.
  */
 public class StrategyInfoResponse {
+
+    @ApiModelProperty(value = "序号，从0开始")
+    private Integer index;
 
     @ApiModelProperty(value = "攻略ID，唯一标识")
     private Integer strategyId;
@@ -86,10 +90,29 @@ public class StrategyInfoResponse {
         this.hot = hot;
     }
 
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public StrategyInfoResponse(StrategyBannerInfoModel model) {
+        this.index = model.getOrderNum();
+        this.strategyId = model.getStrategyId();
+        this.title = model.getStrategyInfoModel().getTitle();
+        this.summary = model.getStrategyInfoModel().getSummary();
+        this.link = model.getStrategyInfoModel().getLink();
+        this.titleImageUrl = model.getStrategyInfoModel().getTitleImageUrl();
+        this.createTime = model.getStrategyInfoModel().getCreateTime();
+    }
+
     @Override
     public String toString() {
         return "StrategyInfoResponse{" +
-                "strategyId=" + strategyId +
+                "index=" + index +
+                ", strategyId=" + strategyId +
                 ", title='" + title + '\'' +
                 ", summary='" + summary + '\'' +
                 ", link='" + link + '\'' +

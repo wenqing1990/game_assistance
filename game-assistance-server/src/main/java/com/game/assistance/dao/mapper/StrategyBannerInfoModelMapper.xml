@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.assistance.dao.StrategyBannerInfoModelMapper">
+    <resultMap id="BaseResultMap" type="com.game.assistance.model.StrategyBannerInfoModel">
+        <id column="app_name" property="appName" jdbcType="VARCHAR"/>
+        <id column="order_num" property="orderNum" jdbcType="INTEGER"/>
+        <result column="strategy_id" property="strategyId" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <association property="strategyInfoModel" javaType="com.game.assistance.model.StrategyInfoModel"
+                     resultMap="com.game.assistance.dao.StrategyInfoModelMapper.BaseResultMap"></association>
+    </resultMap>
+    <select id="getStrategyBannersByAppName" resultMap="BaseResultMap"
+            parameterType="java.lang.String">
+            SELECT
+                sb.order_num AS order_num,
+                sb.app_name AS app_name,
+                sb.strategy_id AS strategy_id,
+                sb.create_time AS create_time,
+                strategyInfoModel.app_name,
+                strategyInfoModel.strategy_id,
+                strategyInfoModel.content,
+                strategyInfoModel.create_time,
+                strategyInfoModel.link,
+                strategyInfoModel.summary,
+                strategyInfoModel.title,
+                strategyInfoModel.title_image_url
+            FROM
+                strategy_banner_info AS sb
+            LEFT JOIN strategy_info AS strategyInfoModel ON sb.app_name = strategyInfoModel.app_name
+            AND sb.strategy_id = strategyInfoModel.strategy_id
+            WHERE
+                sb.app_name = #{appName,jdbcType=VARCHAR}
+            ORDER BY
+                sb.order_num ASC;
+    </select>
+
+</mapper>

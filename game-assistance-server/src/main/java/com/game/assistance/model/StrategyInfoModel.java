@@ -72,7 +72,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.strategy_id
      *
      * @return the value of strategy_info.strategy_id
-     *
      * @mbggenerated
      */
     public Integer getStrategyId() {
@@ -84,7 +83,6 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.strategy_id
      *
      * @param strategyId the value for strategy_info.strategy_id
-     *
      * @mbggenerated
      */
     public void setStrategyId(Integer strategyId) {
@@ -96,7 +94,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.app_name
      *
      * @return the value of strategy_info.app_name
-     *
      * @mbggenerated
      */
     public String getAppName() {
@@ -108,7 +105,6 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.app_name
      *
      * @param appName the value for strategy_info.app_name
-     *
      * @mbggenerated
      */
     public void setAppName(String appName) {
@@ -120,7 +116,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.title
      *
      * @return the value of strategy_info.title
-     *
      * @mbggenerated
      */
     public String getTitle() {
@@ -132,7 +127,6 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.title
      *
      * @param title the value for strategy_info.title
-     *
      * @mbggenerated
      */
     public void setTitle(String title) {
@@ -144,7 +138,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.summary
      *
      * @return the value of strategy_info.summary
-     *
      * @mbggenerated
      */
     public String getSummary() {
@@ -156,7 +149,6 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.summary
      *
      * @param summary the value for strategy_info.summary
-     *
      * @mbggenerated
      */
     public void setSummary(String summary) {
@@ -168,7 +160,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.content
      *
      * @return the value of strategy_info.content
-     *
      * @mbggenerated
      */
     public String getContent() {
@@ -180,7 +171,6 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.content
      *
      * @param content the value for strategy_info.content
-     *
      * @mbggenerated
      */
     public void setContent(String content) {
@@ -192,7 +182,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.link
      *
      * @return the value of strategy_info.link
-     *
      * @mbggenerated
      */
     public String getLink() {
@@ -204,7 +193,6 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.link
      *
      * @param link the value for strategy_info.link
-     *
      * @mbggenerated
      */
     public void setLink(String link) {
@@ -216,7 +204,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.title_image_url
      *
      * @return the value of strategy_info.title_image_url
-     *
      * @mbggenerated
      */
     public String getTitleImageUrl() {
@@ -228,7 +215,6 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.title_image_url
      *
      * @param titleImageUrl the value for strategy_info.title_image_url
-     *
      * @mbggenerated
      */
     public void setTitleImageUrl(String titleImageUrl) {
@@ -240,7 +226,6 @@ public class StrategyInfoModel {
      * This method returns the value of the database column strategy_info.create_time
      *
      * @return the value of strategy_info.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -252,10 +237,23 @@ public class StrategyInfoModel {
      * This method sets the value of the database column strategy_info.create_time
      *
      * @param createTime the value for strategy_info.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "StrategyInfoModel{" +
+                "strategyId=" + strategyId +
+                ", appName='" + appName + '\'' +
+                ", title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
+                ", content='" + content + '\'' +
+                ", link='" + link + '\'' +
+                ", titleImageUrl='" + titleImageUrl + '\'' +
+                ", createTime=" + createTime +
+                '}';
     }
 }
