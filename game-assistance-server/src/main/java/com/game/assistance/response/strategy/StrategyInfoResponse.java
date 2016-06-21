@@ -1,6 +1,7 @@
 package com.game.assistance.response.strategy;
 
 import com.game.assistance.model.StrategyBannerInfoModel;
+import com.game.assistance.model.StrategyInfoModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
@@ -106,6 +107,16 @@ public class StrategyInfoResponse {
         this.link = model.getStrategyInfoModel().getLink();
         this.titleImageUrl = model.getStrategyInfoModel().getTitleImageUrl();
         this.createTime = model.getStrategyInfoModel().getCreateTime();
+    }
+
+    public StrategyInfoResponse(StrategyInfoModel model, int index) {
+        this.strategyId = model.getStrategyId();
+        this.title = model.getTitle();
+        this.summary = model.getSummary();
+        this.link = model.getLink();
+        this.titleImageUrl = model.getTitleImageUrl();
+        this.createTime = model.getCreateTime();
+        this.index = index;
     }
 
     @Override

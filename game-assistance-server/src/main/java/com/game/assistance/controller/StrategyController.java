@@ -57,7 +57,8 @@ public class StrategyController {
         } else if (Constants.StrategyConstants.TYPE_HOT.equals(strategyRequest.getType())) {
 
         } else if (Constants.StrategyConstants.TYPE_TIME.equals(strategyRequest.getType())) {
-
+            totalSize = strategyService.countStrategyTotal(appName);
+            listResult = strategyService.getStrategiesByTime(appName, strategyRequest.getPageNum(), strategyRequest.getPageSize());
         }
 
         return new BaseDataResponse<>(new StrategyInfoListExtResponse(totalSize, listResult));

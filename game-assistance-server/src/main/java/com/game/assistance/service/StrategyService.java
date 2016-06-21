@@ -11,4 +11,8 @@ public interface StrategyService {
 
     List<StrategyInfoResponse> getIndexStrategies(String appName);
 
+    List<StrategyInfoResponse> getStrategiesByTime(String appName, Integer pageNum, Integer pageSize);
+
+    int countStrategyTotal(String appName);
+
 }

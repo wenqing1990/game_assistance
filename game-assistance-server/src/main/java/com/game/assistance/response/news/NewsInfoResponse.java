@@ -1,5 +1,6 @@
 package com.game.assistance.response.news;
 
+import com.game.assistance.model.NewsInfoModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
@@ -8,6 +9,19 @@ import java.util.Date;
  * Created by lenovo on 2016/6/14.
  */
 public class NewsInfoResponse {
+
+    public NewsInfoResponse(NewsInfoModel model, Integer index) {
+        this.index = index;
+        this.newsId = model.getNewsId();
+        this.title = model.getTitle();
+        this.summary = model.getSummary();
+        this.link = model.getLink();
+        this.titleImageUrl = model.getTitleImageUrl();
+        this.createTime = model.getCreateTime();
+    }
+
+    @ApiModelProperty(value = "序号，从0开始")
+    private Integer index;
 
     @ApiModelProperty(value = "新闻ID，唯一标识")
     private Integer newsId;
@@ -30,6 +44,14 @@ public class NewsInfoResponse {
     @ApiModelProperty(value = "热度")
     private Integer hot;
 
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
 
     public Integer getNewsId() {
         return newsId;
@@ -90,7 +112,8 @@ public class NewsInfoResponse {
     @Override
     public String toString() {
         return "NewsInfoResponse{" +
-                "newsId=" + newsId +
+                "index=" + index +
+                ", newsId=" + newsId +
                 ", title='" + title + '\'' +
                 ", summary='" + summary + '\'' +
                 ", link='" + link + '\'' +
