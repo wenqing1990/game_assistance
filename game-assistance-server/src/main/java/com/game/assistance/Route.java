@@ -17,4 +17,8 @@ public class Route {
         public final static String GA_STRATEGIES = "/v1/ga/strategies/{type}";
     }
 
+    public static class Hero{
+        public final static String GA_HEROES = "/v1/ga/heroes/{teamID}";
+    }
+
 }
