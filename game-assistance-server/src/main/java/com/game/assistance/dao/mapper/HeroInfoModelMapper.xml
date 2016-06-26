@@ -13,13 +13,13 @@
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
-    hero_id, app_name, name, type, teamID, stars, link, image_url, create_time
+    hero_id, app_name, name, type, team_id, stars, link, image_url, create_time
   </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+    <select id="getHerosByStarsTeam" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from hero_info
-        where app_name = #{appName,jdbcType=INTEGER} and team_id = #{teamId,jdbcType=INTEGER}
+        where app_name = #{appName,jdbcType=VARCHAR} and team_id = #{teamId,jdbcType=VARCHAR}
         ORDER BY stars DESC;
     </select>
 </mapper>
