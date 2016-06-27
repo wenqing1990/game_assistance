@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+	<property name="PROJECT_NAME" value="game_assistance_server" />
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %-5p %t %X %c{1}:%L - %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="info"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<param name="file" value="${catalina.base}/logs/${PROJECT_NAME}-info.log" />
+		<param name="Encoding" value="UTF-8" />
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/${PROJECT_NAME}-info.log.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d %-5p %t %X %c{1}:%L - %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="error"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<param name="file" value="${catalina.base}/logs/${PROJECT_NAME}-error.log" />
+		<param name="Encoding" value="UTF-8" />
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/${PROJECT_NAME}-error.log.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d %-5p %t %X %c{1}:%L - %m%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="info_logger" additivity="false">
+		<appender-ref ref="info" />
+	</logger>
+	<logger name="error_logger" additivity="false">
+		<appender-ref ref="error" />
+	</logger>
+	<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<discardingThreshold>0</discardingThreshold>
+		<queueSize>512</queueSize>
+		<appender-ref ref="info" />
+	</appender>
+	<root level="info">
+		<appender-ref ref="console" />
+		<appender-ref ref="ASYNC" />
+		<appender-ref ref="error" />
+	</root>
+</configuration>
