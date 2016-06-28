@@ -89,7 +89,7 @@
             iframe: true,
             placeholderText: '请输入内容',
             charCounterMax: 3000,
-            imageUploadURL: "uploadImgEditor",
+            imageUploadURL: "/cms/uploadImgEditor",
             enter: $.FroalaEditor.ENTER_BR,
             language: 'zh_cn'
 //            <!--toolbarButtons: [
@@ -114,7 +114,7 @@
             var svgHtml = $('#edit').froalaEditor('html.get');
             //alert(svgHtml);
             $.ajax({
-                url: 'save',
+                url: '/cms/save',
                 type: 'post',
                 cache: false,
                 dataType: 'json',

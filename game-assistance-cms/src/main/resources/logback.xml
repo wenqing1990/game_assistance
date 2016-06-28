@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
 <configuration>
-	<property name="PROJECT_NAME" value="game_assistance_server" />
+	<property name="PROJECT_NAME" value="game_assistance_cms" />
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%d %-5p %t %X %c{1}:%L - %m%n</pattern>
