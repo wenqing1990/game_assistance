@@ -21,4 +21,8 @@ public class Route {
         public final static String GA_HEROES = "/v1/ga/heroes/{teamId}";
     }
 
+    public static class App{
+        public final static String GA_APP_UPDATE = "/v1/ga/app/update";
+    }
+
 }
